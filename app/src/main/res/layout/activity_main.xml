@@ -6,81 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/tenTip"
+    <TextView
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="133dp"
-        android:onClick="tenPercentTip"
-        app:layout_constraintBottom_toTopOf="@+id/tip"
-        app:layout_constraintEnd_toStartOf="@+id/fifteenTip"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount" />
-
-    <Button
-        android:id="@+id/fifteenTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="50dp"
-        android:onClick="fifteenPercentTip"
-        app:layout_constraintBottom_toTopOf="@+id/resetter"
-        app:layout_constraintEnd_toStartOf="@+id/customTip"
-        app:layout_constraintStart_toEndOf="@+id/tenTip"
+        android:layout_marginTop="7dp"
+        android:text="@string/peopleTxt"
+        app:layout_constraintEnd_toStartOf="@+id/tipAmnt"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/customTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="133dp"
-        android:onClick="customTip"
-        app:layout_constraintBottom_toTopOf="@+id/perPerson"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fifteenTip"
-        app:layout_constraintTop_toBottomOf="@+id/numPeople" />
 
     <TextView
         android:id="@+id/tip"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginLeft="59dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="114dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/total"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tenTip" />
+        android:layout_width="96dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginRight="63dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/total"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/total"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/perPerson"
-        app:layout_constraintStart_toEndOf="@+id/tip"
-        app:layout_constraintTop_toBottomOf="@+id/resetter" />
+        android:layout_width="96dp"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/perPerson"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
-        android:layout_marginBottom="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/total"
-        app:layout_constraintTop_toBottomOf="@+id/customTip" />
+        android:layout_height="60dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/total"
+        app:layout_constraintEnd_toEndOf="@+id/tipAmnt"
+        app:layout_constraintStart_toEndOf="@+id/total" />
 
     <Button
         android:id="@+id/resetter"
@@ -88,38 +50,129 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginBottom="35dp"
         android:onClick="resetTips"
-        app:layout_constraintBottom_toTopOf="@+id/total"
-        app:layout_constraintStart_toStartOf="@+id/total"
-        app:layout_constraintTop_toBottomOf="@+id/fifteenTip" />
+        android:text="@string/resetTxt"
+        app:layout_constraintBaseline_toBaselineOf="@+id/calculator"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
 
     <Button
+        android:id="@+id/calculator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="41dp"
+        android:onClick="calculate"
+        android:text="@string/calcTxt"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/resetter" />
+
+    <EditText
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="242dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="86dp"
-        android:onClick="inputAmount"
-        app:layout_constraintBottom_toTopOf="@+id/tenTip"
-        app:layout_constraintEnd_toStartOf="@+id/numPeople"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="15dp"
+        android:autofillHints=""
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <Button
-        android:id="@+id/numPeople"
+    <EditText
+        android:id="@+id/tipAmnt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="242dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="267dp"
-        android:onClick="inputNumPeople"
-        app:layout_constraintBottom_toTopOf="@+id/total"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:autofillHints=""
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/numPpl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="15dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="207dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginBottom="90dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/resetter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/amount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/amount">
+
+        <RadioButton
+            android:id="@+id/tenPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="tenPercentTip"
+            android:text="@string/tenPercent" />
+
+        <RadioButton
+            android:id="@+id/fifteenPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="fifteenPercentTip"
+            android:text="@string/fifteenPercent" />
+
+        <RadioButton
+            android:id="@+id/custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="customTip"
+            android:text="@string/custom" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="301dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:text="@string/tipTxt"
+        app:layout_constraintEnd_toEndOf="@+id/tip"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="@string/costTxt"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/calculator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:text="@string/totalTxt"
+        app:layout_constraintBottom_toTopOf="@+id/total"
+        app:layout_constraintStart_toStartOf="@+id/total" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="41dp"
+        android:text="@string/perPersonTxt"
+        app:layout_constraintStart_toStartOf="@+id/perPerson"
+        app:layout_constraintTop_toBottomOf="@+id/resetter" />
 </android.support.constraint.ConstraintLayout>

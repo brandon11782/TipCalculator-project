@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,9 +17,13 @@ public class MainActivity extends AppCompatActivity {
     double total;
     double totalTip;
     double totalPerPerson;
-    Button customTip;
-    Button amount;
-    Button numPeople;
+ //   RadioButton customTip;
+    TextView tipTotalTxt;
+    TextView totalTxt;
+    TextView perPersonTxt;
+    EditText cost;
+    EditText tipAmount;
+    EditText numPeople;
 
 
     @Override
@@ -24,13 +31,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        totalTip = amountNoTip * tipPercent;
-        total = amountNoTip + totalTip;
-        totalPerPerson = total / numOfPeople;
+
+        tipAmount = (EditText) findViewById(R.id.tipAmnt);
+        cost = (EditText) findViewById(R.id.amount);
+        numPeople = (EditText) findViewById(R.id.numPpl);
+        tipTotalTxt = (TextView) findViewById(R.id.tip);
+        totalTxt = (TextView) findViewById(R.id.total);
+        perPersonTxt = (TextView) findViewById(R.id.perPerson);
+
+        tipAmount.setOnKeyListener(mKeyListener);
+        cost.setOnKeyListener(mKeyListener);
+        numPeople.setOnKeyListener(mKeyListener);
     }
 
     public void customTip(View v) {
-        String tip = customTip.toString();
+        String tip = tipAmount.getText().toString();
         tipPercent = Double.parseDouble(tip);
     }
 
@@ -42,15 +57,28 @@ public class MainActivity extends AppCompatActivity {
         tipPercent = 15.00;
     }
 
-    public void inputNumPeople(View v) {
-        String people = numPeople.toString();
+
+    public void calculate (View v){
+
+        String people = numPeople.getText().toString();
         numOfPeople = Integer.parseInt(people);
+
+        String preTipAmount = cost.getText().toString();
+        amountNoTip = Integer.parseInt(preTipAmount);
+
+        totalTip = amountNoTip * (tipPercent *.01);
+        total = amountNoTip + totalTip;
+        totalPerPerson = total / numOfPeople;
+
+        tipTotalTxt.setText(String.valueOf(totalTip));
+        totalTxt.setText(String.valueOf(total));
+        perPersonTxt.setText(String.valueOf(totalPerPerson));
     }
 
-    public void inputAmount(View v) {
-        String preTipAmount = amount.toString();
-        amountNoTip = Integer.parseInt(preTipAmount);
-    }
+ //   public void inputAmount(View v) {
+  //      String preTipAmount = amount.getText().toString();
+ //       amountNoTip = Integer.parseInt(preTipAmount);
+ //   }
 
     public void resetTips(View v)
     {
@@ -62,12 +90,12 @@ public class MainActivity extends AppCompatActivity {
         public boolean onKey(View v, int keyCode, KeyEvent event) {
 
             switch (v.getId()) {
-                case R.id.customTip:
-                    customTip.setText(keyCode);
-                case R.id.numPeople:
-                    numPeople.setText(keyCode);
                 case R.id.amount:
-                    amount.setText(keyCode);
+
+                case R.id.tipAmnt:
+
+                case R.id.numPpl:
+
             }
             return false;
         }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TipCalculator-counter</string>
+    <string name="tenPercent">10%</string>
+    <string name="fifteenPercent">15%</string>
+    <string name="custom">Custom</string>
+    <string name="tipTxt">Tip Amount</string>
+    <string name="totalTxt">Total</string>
+    <string name="perPersonTxt">$ Per Person</string>
+    <string name="calcTxt">Calculate</string>
+    <string name="resetTxt">Reset</string>
+    <string name="costTxt">Cost</string>
+    <string name="peopleTxt"># of People</string>
 </resources>
